@@ -1,0 +1,76 @@
+definitions:
+  Error:
+    properties:
+      message:
+        type: string
+    type: object
+  Health:
+    properties:
+      status:
+        type: boolean
+    type: object
+  ResponseError:
+    properties:
+      errors:
+        items:
+          $ref: '#/definitions/Error'
+        type: array
+    type: object
+  Service:
+    properties:
+      applicationGroup:
+        type: string
+      name:
+        type: string
+      runningPodsCount:
+        type: integer
+    type: object
+host: localhost:3000
+info:
+  contact:
+    email: romain.rtestard@gmail.com
+    name: Romain Testard
+  description: This a k8s platform manager cluster
+  title: Platform Manager Rest Server
+  version: "1.0"
+paths:
+  /health:
+    get:
+      consumes:
+      - application/json
+      description: Healthcheck endpoint, to ensure that the service is running.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Health'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ResponseError'
+      summary: Health check
+      tags:
+      - Health
+  /services:
+    get:
+      description: Return services information per application group
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/Service'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ResponseError'
+      summary: GetServicesPerApplicationGroup queries pods information per application
+        group
+      tags:
+      - Service
+swagger: "2.0"

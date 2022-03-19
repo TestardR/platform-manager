@@ -1,0 +1,18 @@
+
+version: '3.4'
+services:
+    platformmanager:
+        build:
+            dockerfile: ${D_PATH:-Dockerfile}
+            context: .
+        environment:
+            # App config
+            - PORT=3000
+            - ENV=debug
+            # K8S config
+            - NAMESPACE=default
+            - KUBE_CONFIG_PATH=/root/.kube/config
+        volumes:
+            - ./:/go/src
+            - ~/.kube:/root/.kube
+        network_mode: host
