@@ -93,7 +93,7 @@ The implementation is based on the inversion of control principle. [The applicat
 Ideally, I would want to follow the [Test Pyramid stragegy](https://martinfowler.com/articles/practical-test-pyramid.html).
 
 - On unit tests: we reach an overall coverage of 88,9%. Critical contracts are made to interfaces and not to concrete implementations. It allows us to mock concrete implementations from interfaces using [gomock library](https://github.com/golang/mock).
-- On integration tests: there are none, even though unit tests cover the repository layer. Ideally, I would have liked a few integration tests on the redis client.
+- On integration tests: there are none, even though unit tests cover the repository layer. Ideally, I would have liked a few integration tests on the k8s client.
 - On e2e tests, you can run the below queries when running the stack: 
 
 You can run the following tests
@@ -179,7 +179,6 @@ They are two mode to run the service:
 You can access to your local service with the following ports:
 
 - **HTTP API:** 3000
-- **Redis:** 6379
 
 ## Quality code
 
