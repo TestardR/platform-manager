@@ -207,7 +207,7 @@ We use [Golangci-lint](https://golangci-lint.run/) as linter.
 
 We use swaggo to generate a swagger documentation. To install swaggo, run `make tools`, and to generate the documentation run `make docs`.
 
-The documentation will then be available under the endpoint [/swagger/index.html](http://localhost:3000/swagger/index.html).r
+The documentation will then be available under the endpoint [/swagger/index.html](http://localhost:3000/swagger/index.html).
 
 
 
