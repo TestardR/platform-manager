@@ -161,7 +161,7 @@ GET `/services/beta`
 
 - Golang (check minimum required version in the [go.mod file](./driver-location/go.mod))
 - Docker >= 20.10.12
-- Kind via [kind](https://kind.sigs.k8s.io/). If you use minikube, you will encounter TLS certification errors as in the current solution certificates are not made available inside the Docker container of the running service. For conveniance, please look at kind at the used [kubeconfig](./sample.kubeconfig.yaml) 
+- Kind via https://kind.sigs.k8s.io/. If you use minikube, you will encounter TLS certification errors as in the current solution certificates are not made available inside the Docker container of the running service. For convenience, please at the used [kubeconfig](./sample.kubeconfig.yaml) 
 
 ### Run
 
