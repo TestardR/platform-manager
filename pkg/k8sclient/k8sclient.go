@@ -11,7 +11,7 @@ import (
 
 //go:generate mockgen -package=mock -source=k8sclient.go -destination=$MOCK_FOLDER/k8sclient.go Managerer
 
-// Managerer describres methods associated with a Logger instance.
+// Managerer describres methods associated with a Manager instance.
 type Managerer interface {
 	// GetDeployments returns services deployed in a namespace
 	GetDeployments(ctx context.Context, namespace string) ([]v1.Deployment, error)
@@ -19,7 +19,7 @@ type Managerer interface {
 	GetDeploymentsPerLabel(ctx context.Context, namespace, label, value string) ([]v1.Deployment, error)
 }
 
-// Manager  instanciates a Manager instance.
+// Manager holds a client to specifc kubernetes library.
 type Manager struct {
 	client *kubernetes.Clientset
 }
